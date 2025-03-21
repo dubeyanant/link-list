@@ -2,14 +2,23 @@
 
 import { useRouter } from "next/navigation";
 import { supabase } from "../supabase";
-import { nanoid } from "nanoid";
+import {
+  uniqueNamesGenerator,
+  adjectives,
+  colors,
+  animals,
+} from "unique-names-generator";
 import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
 
   const createList = async () => {
-    const listId = nanoid();
+    const listId = uniqueNamesGenerator({
+      dictionaries: [adjectives, colors, animals],
+      separator: "-",
+      length: 3,
+    });
 
     const { error } = await supabase
       .from("lists")
