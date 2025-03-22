@@ -9,7 +9,7 @@ import {
   animals,
 } from "unique-names-generator";
 import Link from "next/link";
-import { LinkIcon } from "@/components/icons";
+import { LinkIcon } from "@/components/ui/icons";
 
 export default function Home() {
   const router = useRouter();
