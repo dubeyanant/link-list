@@ -41,6 +41,10 @@ body {
   animation: shine 7s linear infinite;
 }
 
+.screen-height {
+  min-height: calc(100vh - 40px);
+}
+
 @keyframes shine {
   0% {
     background-position: 0% 50%;
