@@ -27,29 +27,29 @@ body {
 
 .text-shine {
   background: linear-gradient(
-    45deg,
-    #ffffff,
-    #cccccc,
-    #ffffff,
-    #cccccc,
-    #ffffff
+    90deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #e0e0e0 50%,
+    #ffffff 70%,
+    #ffffff 100%
   );
-  background-size: 300% 300%;
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shine 7s linear infinite;
-}
-
-.screen-height {
-  min-height: calc(100vh - 40px);
+  animation: shine 6s linear infinite;
 }
 
 @keyframes shine {
   0% {
-    background-position: 0% 50%;
+    background-position: 200% 0%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 0% 0%;
   }
+}
+
+.screen-height {
+  min-height: calc(100vh - 40px);
 }
