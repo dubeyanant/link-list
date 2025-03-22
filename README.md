@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📝 Next.js LinkList App
 
-## Getting Started
+This is a **Next.js** web app using **Supabase** for real-time updates. Users can create a list, share it with others, and allow them to add their names. The list updates **instantly** and is **automatically deleted after 7 days**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Create a List** 📃 - Generates a unique link.
+- **Join a List** 👥 - Users can add their names.
+- **Real-Time Updates** ⚡ - List updates instantly using Supabase Realtime.
+- **Automatic Expiry** ⏳ - Lists delete **7 days** after creation.
+- **Timestamp Display** 📅 - Shows the date and time each user joined.
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js** - React Framework
+- **Supabase** - Database & Realtime Updates
+- **PostgreSQL** - Database
+
+---
+
+## 🏗 Setup Instructions
+
+### 1️⃣ Clone the Repo
+
+```sh
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+npm install or bun i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3️⃣ Configure Supabase
 
-## Learn More
+- Create a **Supabase** account at [supabase.com](https://supabase.com)
+- Set up a **new project** and **PostgreSQL database**.
+- Get your **API keys** and **database URL** from the Supabase dashboard.
+- Create a `.env` file in the root directory and add:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4️⃣ Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run dev or bun run dev
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Supabase Database Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run the following SQL in Supabase SQL Editor:
+
+```sql
+CREATE TABLE lists (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  users JSONB NOT NULL DEFAULT '[]',
+  expires_at TIMESTAMP DEFAULT (NOW() + INTERVAL '7 days')
+);
+```
+
+Enable **Realtime Updates** for the `lists` table.
+
+---
+
+## 🎯 Contributing
+
+1. Fork the repo 🍴
+2. Create a new branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -m 'Added new feature'`
+4. Push branch: `git push origin feature-name`
+5. Open a **Pull Request** 🚀
+
+---
+
+## 📜 License
+
+MIT License. Feel free to use and modify!
