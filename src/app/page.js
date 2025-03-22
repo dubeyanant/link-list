@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { supabase } from "../supabase";
+import { supabase } from "@/utils/supabase";
 import {
   uniqueNamesGenerator,
   adjectives,
@@ -9,6 +9,7 @@ import {
   animals,
 } from "unique-names-generator";
 import Link from "next/link";
+import { LinkIcon } from "@/components/icons";
 
 export default function Home() {
   const router = useRouter();
@@ -51,21 +52,7 @@ export default function Home() {
           onClick={createList}
           className="flex items-center mt-8 px-6 py-3 rounded-xl font-bold text-base md:text-2xl border border-zinc-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:bg-zinc-800"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="size-5 md:size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-            />
-          </svg>
-
+          <LinkIcon />
           <span className="ml-2">Create List</span>
         </Link>
       </div>
