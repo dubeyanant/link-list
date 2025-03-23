@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { CheckIcon, CopyIcon } from "@/components/ui/icons";
+import { AddIcon, CheckIcon, CopyIcon } from "@/components/ui/icons";
 
 export default function ListForm({ onSubmit, isCopied, onCopy }) {
   const [name, setName] = useState("");
@@ -26,13 +26,19 @@ export default function ListForm({ onSubmit, isCopied, onCopy }) {
         maxLength={25}
         pattern="[A-Za-z ]+"
       />
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 flex gap-2 md:justify-between">
         <Link
           href=""
           onClick={handleSubmit}
           className="items-center px-4 py-2 w-fit rounded-xl font-bold text-base border border-zinc-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-zinc-900"
         >
           Join List
+        </Link>
+        <Link
+          href="https://linklist.anant.ink"
+          className="items-center p-2 rounded-xl font-bold text-base border border-zinc-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-zinc-900"
+        >
+          <AddIcon />
         </Link>
         <Link
           href=""
