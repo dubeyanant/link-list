@@ -30,7 +30,7 @@ export default function ListPage({ params }) {
     <div>
       <div className="flex flex-col md:justify-evenly md:flex-row md:items-center max-w-3xl mx-auto p-6 screen-height gap-16">
         <div className="mt-8 md:mt-0 md:w-auto flex flex-col">
-          <ListHeader id={id} expired={expired} expiryDate={expiryDate} />
+          <ListHeader id={id} expiryDate={expiryDate} />
 
           {!expired && (
             <ListForm
